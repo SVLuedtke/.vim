@@ -38,7 +38,7 @@ set nohidden
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+map Q <nop>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -52,12 +52,8 @@ endif
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-  "syntax on
-  "set hlsearch
-  filetype on
-  filetype plugin on
-  syntax enable
-  set grepprg=grep\ -nH\ $*
+  syntax on
+  set hlsearch
 endif
 
 if has("gui_running")
@@ -67,12 +63,12 @@ if has("gui_running")
 endif
 
 " Spaces are better than a tab character
-set expandtab
-set smarttab
-
-" Who wants an 8 character tab?  Not me!
-set shiftwidth=4
+" Screw you buddy!  Make tabs 4 wide and one indentation
+set tabstop=4
 set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set smarttab
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
@@ -82,14 +78,11 @@ endif
 
 set number
 " This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
-inoremap jj <Esc>
-
-nnoremap JJJJ <Nop>
+inoremap jk <Esc>
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
@@ -130,3 +123,4 @@ if !exists(":DiffOrig")
 endif
 
 syntax on
+set encoding=utf-8
