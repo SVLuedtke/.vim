@@ -76,7 +76,7 @@ if version >= 700
    set nospell
 endif
 
-set number
+set relativenumber
 " This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
 inoremap jk <Esc>
 
