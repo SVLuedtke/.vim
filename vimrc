@@ -60,6 +60,8 @@ if has("gui_running")
    colorscheme koehler
    "Terminus is AWESOME
    "set guifont=Terminus\ 9
+   " 2 line number columns and 80 text columns
+   set columns=82
 endif
 
 " Spaces are better than a tab character
@@ -69,6 +71,10 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 set smarttab
+
+" Remove the toolbar, which is fat all of a sudden.  I don't really use it
+" anyways
+set guioptions-=T
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
