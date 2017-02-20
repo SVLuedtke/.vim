@@ -59,10 +59,14 @@ endif
 if has("gui_running")
    colorscheme koehler
    "Terminus is AWESOME
-   "set guifont=Terminus\ 9
+   set guifont=M+\ 1mn\ Medium\ 10
    " 2 line number columns and 80 text columns
-   set columns=82
+   " Plus a space to the right of the line number
+   set columns=83
 endif
+
+" The minimun number of columns reserved for the gutter.  Defauld is 4
+set numberwidth=3
 
 " Spaces are better than a tab character
 " Screw you buddy!  Make tabs 4 wide and one indentation
